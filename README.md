@@ -5,7 +5,7 @@
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 [![Issues](https://img.shields.io/github/issues/linusg/rpi-backlight-emulator.svg)](https://github.com/linusg/rpi-backlight-emulator/issues)
 
-![Demo](docs/demo.gif)
+![Demo](https://raw.githubusercontent.com/linusg/rpi-backlight-emulator/master/docs/demo.gif)
 
 ## Requirements
 
@@ -43,6 +43,6 @@ Enable `Show live screen` to replace the static Raspbian Buster screenshot with 
 
 ## Screenshots
 
-![Display off](docs/screenshot_display_off.png)
-![Display on](docs/screenshot_display_on.png)
-![Brightness low](docs/screenshot_brightness_low.png)
+![Display off](https://raw.githubusercontent.com/linusg/rpi-backlight-emulator/master/docs/screenshot_display_off.png)
+![Display on](https://raw.githubusercontent.com/linusg/rpi-backlight-emulator/master/docs/screenshot_display_on.png)
+![Brightness low](https://raw.githubusercontent.com/linusg/rpi-backlight-emulator/master/docs/screenshot_brightness_low.png)

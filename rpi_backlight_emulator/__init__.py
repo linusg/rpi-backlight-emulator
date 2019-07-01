@@ -24,7 +24,7 @@ from PySide2.QtWidgets import (
 )
 
 __author__ = "Linus Groh"
-__version__ = "1.0.0b7"
+__version__ = "1.0.0b8"
 
 CURRENT_DIR = Path(__file__).parent
 TMP_DIR = Path(gettempdir())
