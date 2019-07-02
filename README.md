@@ -13,16 +13,26 @@ display connected or even running on the Pi.
 
 ## Requirements
 
-Python 3.5+ is required, all necessary packages will be installed automatically
+Python 3.5+ is required, along with the packages [`PySide2`](https://pypi.org/project/PySide2),
+[`inotify_simple`](https://pypi.org/project/inotify_simple) and
+[`rpi-backlight>=2.0.0a1`](https://github.com/linusg/rpi-backlight/tree/v2.0.0-alpha)
 (see below).
-
-`rpi-backlight-emulator` uses the
-[`rpi-backlight` v2 API](https://github.com/linusg/rpi-backlight/tree/v2.0.0-alpha).
 
 ## Installation
 
+PySide2 wheels for x86/x64 are available on PyPI, so you can simply run:
+
 ```
 $ pip3 install rpi-backlight-emulator
+```
+
+On ARM (e.g. Raspberry Pi) it's more complicated (and only the new Debian/Raspbian Buster
+will work, Stretch won't - you'd have to install PySide2 from source):
+
+```
+$ sudo apt install python3-pyside2.qtcore python3-pyside2.qtgui python3-pyside2.qtwidgets
+$ pip3 install inotify_simple rpi-backlight~=2.0.0a1
+$ pip3 install --no-deps rpi-backlight-emulator
 ```
 
 ## Usage
