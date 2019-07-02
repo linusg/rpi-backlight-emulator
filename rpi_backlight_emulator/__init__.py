@@ -6,10 +6,17 @@ import time
 from functools import partial
 from pathlib import Path
 from tempfile import gettempdir
+from typing import Any, Callable
 
 from rpi_backlight import Backlight
 from rpi_backlight.utils import FakeBacklightSysfs
-from inotify_simple import INotify, flags
+from watchdog.observers import Observer
+from watchdog.events import (
+    FileSystemEvent,
+    FileModifiedEvent,
+    FileDeletedEvent,
+    FileSystemEventHandler,
+)
 from PySide2.QtCore import Qt, QPoint, QRect, QThread, QTimer, Signal
 from PySide2.QtGui import QIcon, QImage, QPainter, QPixmap
 from PySide2.QtWidgets import (
@@ -69,35 +76,48 @@ def get_screenshot() -> QPixmap:
     return screen.grabWindow(desḱtop_window)
 
 
-class INotifyThread(QThread):
+class FileChangeEventHandler(FileSystemEventHandler):
+    def __init__(self, callback: Callable[[FileSystemEvent], None]) -> None:
+        self.callback = callback
+
+    def on_any_event(self, event: FileSystemEvent) -> None:
+        self.callback(event)
+
+
+class FileWatcherThread(QThread):
     file_changed = Signal(str)
 
-    def __init__(self, parent, sysfs_directory) -> None:
-        super(INotifyThread, self).__init__(parent)
+    def __init__(self, parent: Any, sysfs_directory: Path) -> None:
+        super(FileWatcherThread, self).__init__(parent)
         self.sysfs_directory = sysfs_directory
-        self.inotify = INotify()
+        self.observer = Observer()
         self.running = False
 
     def interrupt(self) -> None:
-        self.inotify.close()
+        self.observer.stop()
+        self.observer.join()
         self.running = False
 
     def run(self) -> None:
         self.running = True
-        self.inotify.add_watch(self.sysfs_directory, flags.DELETE | flags.MODIFY)
+        self.observer.schedule(
+            FileChangeEventHandler(callback=self.handle_file_change),
+            str(self.sysfs_directory),
+        )
+        self.observer.start()
 
         while self.running:
-            try:
-                for event in self.inotify.read(timeout=100):
-                    if event.name not in ("bl_power", "brightness"):
-                        continue
-                    for flag in flags.from_mask(event.mask):
-                        if flag == flags.DELETE:
-                            print("WARNING: file has been deleted!")
-                            continue
-                        self.file_changed.emit(event.name)
-            except OSError:
-                return
+            time.sleep(1)
+
+    def handle_file_change(self, event: FileSystemEvent) -> None:
+        filename = Path(event.src_path).stem
+        if filename not in ("bl_power", "brightness"):
+            return
+        if isinstance(event, FileDeletedEvent):
+            print("WARNING: file {0} has been deleted!".format(filename))
+            return
+        if isinstance(event, FileModifiedEvent):
+            self.file_changed.emit(filename)
 
 
 class MainWindow(QMainWindow):
@@ -132,7 +152,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.screen_image)
         widget.setLayout(main_layout)
 
-        self.thread = INotifyThread(self, backlight_sysfs_path)
+        self.thread = FileWatcherThread(self, backlight_sysfs_path)
         self.thread.file_changed.connect(self.update_widgets)
         self.thread.start()
 
