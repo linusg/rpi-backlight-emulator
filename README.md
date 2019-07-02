@@ -15,7 +15,7 @@ display connected or even running on the Pi.
 
 Python 3.5+ is required, along with the packages [`PySide2`](https://pypi.org/project/PySide2),
 [`inotify_simple`](https://pypi.org/project/inotify_simple) and
-[`rpi-backlight>=2.0.0a1`](https://github.com/linusg/rpi-backlight/tree/v2.0.0-alpha)
+[`rpi-backlight>=2.0.0a1`](https://pypi.org/project/rpi-backlight/2.0.0b2)
 (see below).
 
 ## Installation
