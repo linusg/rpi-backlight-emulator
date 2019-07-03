@@ -59,7 +59,7 @@ setup(
     ],
     include_package_data=True,
     packages=["rpi_backlight_emulator"],
-    install_requires=["watchdog", "PySide2", "rpi-backlight>=2.0.0b5"],
+    install_requires=["watchdog", "PySide2", "rpi-backlight>=2.0.0b7"],
     entry_points={
         "console_scripts": ["rpi-backlight-emulator = rpi_backlight_emulator:main"]
     },
