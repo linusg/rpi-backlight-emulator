@@ -43,6 +43,9 @@ Run:
 $ rpi-backlight-emulator
 ```
 
+_Note: on Windows, you'll need administrator privileges to create symbolic links, which_
+_this program does - so you'll have to execute the above as administrator._
+
 Next, open a Python shell and create a `rpi_backlight.Backlight` instance using the
 emulator:
 
