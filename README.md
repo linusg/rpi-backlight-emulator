@@ -15,7 +15,7 @@ display connected or even running on the Pi.
 
 Python 3.5+ is required, along with the packages [`PySide2`](https://pypi.org/project/PySide2),
 [`watchdog`](https://pypi.org/project/watchdog) and
-[`rpi-backlight>=2.0.0b5`](https://pypi.org/project/rpi-backlight/2.0.0b5)
+[`rpi-backlight>=2.0.0`](https://pypi.org/project/rpi-backlight)
 (see below).
 
 ## Installation
@@ -31,7 +31,7 @@ will work, Stretch won't - you'd have to install PySide2 from source):
 
 ```
 $ sudo apt install python3-pyside2.qtcore python3-pyside2.qtgui python3-pyside2.qtwidgets
-$ pip3 install watchdog rpi-backlight>=2.0.0b5
+$ pip3 install watchdog rpi-backlight>=2.0.0
 $ pip3 install --no-deps rpi-backlight-emulator
 ```
 
