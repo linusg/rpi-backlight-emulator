@@ -1,9 +1,11 @@
 # Raspberry Pi 7" LCD emulator for [`rpi-backlight`](https://github.com/linusg/rpi-backlight)
 
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](ttps://github.com/linusg/rpi-backlight-emulator/blob/master/LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/rpi-backlight-emulator.svg)](https://pypi.org/project/rpi-backlight-emulator/)
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
-[![Issues](https://img.shields.io/github/issues/linusg/rpi-backlight-emulator.svg)](https://github.com/linusg/rpi-backlight-emulator/issues)
+[![PyPI](https://img.shields.io/pypi/v/rpi-backlight-emulator)](https://pypi.org/project/rpi-backlight-emulator/)
+![Python Version](https://img.shields.io/pypi/pyversions/rpi-backlight-emulator)
+[![Downloads](https://pepy.tech/badge/rpi-backlight-emulator)](https://pepy.tech/project/rpi-backlight-emulator)
+[![License](https://img.shields.io/github/license/linusg/rpi-backlight-emulator?color=d63e97)](ttps://github.com/linusg/rpi-backlight-emulator/blob/master/LICENSE)
+[![Black](https://img.shields.io/badge/code%20style-black-000000)](https://github.com/ambv/black)
+[![Issues](https://img.shields.io/github/issues/linusg/rpi-backlight-emulator)](https://github.com/linusg/rpi-backlight-emulator/issues)
 
 ![Demo](https://raw.githubusercontent.com/linusg/rpi-backlight-emulator/master/docs/demo.gif)
 
