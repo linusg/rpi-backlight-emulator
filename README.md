@@ -3,7 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/rpi-backlight-emulator)](https://pypi.org/project/rpi-backlight-emulator/)
 ![Python Version](https://img.shields.io/pypi/pyversions/rpi-backlight-emulator)
 [![Downloads](https://pepy.tech/badge/rpi-backlight-emulator)](https://pepy.tech/project/rpi-backlight-emulator)
-[![License](https://img.shields.io/github/license/linusg/rpi-backlight-emulator?color=d63e97)](ttps://github.com/linusg/rpi-backlight-emulator/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/linusg/rpi-backlight-emulator?color=d63e97)](https://github.com/linusg/rpi-backlight-emulator/blob/master/LICENSE)
 [![Black](https://img.shields.io/badge/code%20style-black-000000)](https://github.com/ambv/black)
 [![Issues](https://img.shields.io/github/issues/linusg/rpi-backlight-emulator)](https://github.com/linusg/rpi-backlight-emulator/issues)
 
